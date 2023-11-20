@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../component/Header";
 import { productSortedByPrice, products } from "../utils/product-utils";
+import LateralBar from "../component/LateralBar";
 
 function Home() {
   // je trie product par cat
@@ -19,6 +20,7 @@ function Home() {
   return (
     <>
       <Header pageTitle={"Home"}/>
+      <LateralBar textToDisplay={"Le titre du site"}/>
       <main>
         <section>
           <h2>Les trois derniers produits cuisine : </h2>
