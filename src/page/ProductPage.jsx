@@ -21,7 +21,7 @@ function ProductPage() {
   return (
     <>
       <Header pageTitle={"Produit"}/>
-      <LateralBar textToDisplay={"Vous consultez le produit ..."}/>
+      <LateralBar textToDisplay={"Vous consultez le produit " + String(productFound.title)}/>
       <main>
         {productFound ? (
           <article>
