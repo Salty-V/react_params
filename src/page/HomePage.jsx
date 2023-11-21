@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import Header from "../component/Header";
-import { productSortedByPrice, products } from "../utils/product-utils";
+import { pageTitle, productSortedByPrice, products } from "../utils/product-utils";
 import LateralBar from "../component/LateralBar";
+import ProductCard from "../component/ProductCard";
 
 function Home() {
   // je trie product par cat
@@ -20,20 +20,14 @@ function Home() {
   return (
     <>
       <Header pageTitle={"Home"}/>
-      <LateralBar textToDisplay={"Le titre du site"}/>
+      <LateralBar textToDisplay={pageTitle}/>
       <main>
         <section>
           <h2>Les trois derniers produits cuisine : </h2>
 
           {lastPublishedKitchenProducts.map((product) => {
             return (
-              <article>
-                <h3>{product.title}</h3>
-                <p>{product.price}</p>
-                <Link to={`/products/${product.id}`}>
-                  <button>Voir le produit</button>
-                </Link>
-              </article>
+              <ProductCard productToDisplay = {product}/>
             );
           })}
         </section>
@@ -41,13 +35,7 @@ function Home() {
           <h3>Produits les moins chers : </h3>
           {cheapestProducts.map((product) => {
             return (
-              <article>
-                <h3>{product.title}</h3>
-                <p>{product.price}</p>
-                <Link to={`/products/${product.id}`}>
-                  <button>Voir le produit</button>
-                </Link>
-              </article>
+              <ProductCard productToDisplay = {product}/>
             );
           })}
         </section>
